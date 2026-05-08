@@ -37,9 +37,9 @@ env_kwargs:
 
 hydra:
   run:
-    dir: results/${now:%Y%m%d}_${now:%H%M%S}
+    dir: eval/${now:%Y%m%d}_${now:%H%M%S}
   sweep:
-    dir: exp_output/${now:%Y.%m.%d}/${now:%H%M%S}
+    dir: eval/${now:%Y.%m.%d}/${now:%H%M%S}
     subdir: ${hydra.job.num}
   job:
     chdir: True

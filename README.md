@@ -63,11 +63,11 @@ HYDRA_FULL_ERROR=1 python run_trials_nexiom.py \
 Local open-weight model via vLLM:
 
 ```bash
-./run_nexiom_with_vllm.sh 32 Qwen/Qwen2.5-7B-Instruct Qwen/Qwen2.5-7B-Instruct
+./scripts/run_nexiom_with_vllm.sh 32 Qwen/Qwen2.5-7B-Instruct Qwen/Qwen2.5-7B-Instruct
 ```
 
-Outputs are written to `results/<YYYYMMDD_HHMMSS>/` (single run) or
-`exp_output/<date>/<time>/` (Hydra multirun). Both are gitignored.
+Trial outputs are written to `eval/<YYYYMMDD_HHMMSS>/` (single run) or
+`eval/<date>/<time>/` (Hydra multirun). The `eval/` directory is gitignored.
 
 ## Prompt-variant ablations
 
@@ -116,5 +116,7 @@ agent/prompt_variants.py   Prompt-variant resolution (ablations)
 lm_api.py                  Provider-agnostic LLM client (OpenAI/DeepSeek/Gemini/vLLM)
 run_trials_nexiom.py       Hydra entry point for trials
 plots/                     Final figure scripts
+scripts/                   Helper shell scripts (vLLM launch, etc.)
+eval/                      Trial outputs (gitignored)
 process_hypothesis_exps.py Aggregate raw run outputs into DuckDB
 ```
