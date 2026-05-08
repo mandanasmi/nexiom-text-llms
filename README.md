@@ -87,15 +87,15 @@ Override from the command line, e.g.
 Aggregate raw run outputs into DuckDB databases for analysis:
 
 ```bash
-python process_hypothesis_exps.py \
-  results/*/results.jsonl \
+python analysis/process_hypothesis_exps.py \
+  eval/*/results.jsonl \
   --output_dir processed_output \
   --max_workers 4
 ```
 
-Final figures are produced by the scripts in `plots/`, plus
-`classify_rule_inference.py` and `export_rule_inference_csv.py` for the
-rule-inference analyses. Examples:
+Final figures are produced by the scripts in `plots/`. Rule-inference analyses
+live under `analysis/` (`classify_rule_inference.py`,
+`export_rule_inference_csv.py`). Examples:
 
 ```bash
 python plots/plot_accuracy_recent_all_models.py
@@ -115,8 +115,8 @@ agent/nexiom_llm.py        LLM agent used in all reported experiments
 agent/prompt_variants.py   Prompt-variant resolution (ablations)
 lm_api.py                  Provider-agnostic LLM client (OpenAI/DeepSeek/Gemini/vLLM)
 run_trials_nexiom.py       Hydra entry point for trials
-plots/                     Final figure scripts
+plots/                     Final figure scripts and result visualizers
+analysis/                  Post-processing and rule-inference analyses
 scripts/                   Helper shell scripts (vLLM launch, etc.)
 eval/                      Trial outputs (gitignored)
-process_hypothesis_exps.py Aggregate raw run outputs into DuckDB
 ```
