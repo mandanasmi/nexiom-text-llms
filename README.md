@@ -93,9 +93,18 @@ python process_hypothesis_exps.py \
   --max_workers 4
 ```
 
-Final figures are produced by the `plot_*.py` scripts at the repo root, plus
+Final figures are produced by the scripts in `plots/`, plus
 `classify_rule_inference.py` and `export_rule_inference_csv.py` for the
-rule-inference analyses.
+rule-inference analyses. Examples:
+
+```bash
+python plots/plot_accuracy_recent_all_models.py
+python plots/plot_info_gain_recent_all_models.py --metric cum
+python plots/plot_info_gain_recent_all_models.py --metric step
+```
+
+The six models reported are: `gpt-5`, `gpt-5-mini`, `o4-mini`,
+`deepseek-reasoner`, `deepseek-chat`, `gemini-2.5-flash`.
 
 ## Repository layout
 
@@ -106,5 +115,6 @@ agent/nexiom_llm.py        LLM agent used in all reported experiments
 agent/prompt_variants.py   Prompt-variant resolution (ablations)
 lm_api.py                  Provider-agnostic LLM client (OpenAI/DeepSeek/Gemini/vLLM)
 run_trials_nexiom.py       Hydra entry point for trials
-plot_*.py                  Final figure scripts
+plots/                     Final figure scripts
+process_hypothesis_exps.py Aggregate raw run outputs into DuckDB
 ```
